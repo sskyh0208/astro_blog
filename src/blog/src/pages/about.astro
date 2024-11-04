@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "私について";
+
+const identity = {
+  name: "sskyh",
+  country: "Japan",
+  occupation: "インフラエンジニア",
+  hobbies: ["プログラミング", "読書", "音楽"],
+};
+
+const skills = [
+  "Terraform",
+  "CloudFormation",
+  "AWS",
+  "Python",
+  "Guthub Actions",
+  "Docker",
+  "Shell Script",
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <main>
+    <h1>{pageTitle}</h1>
+    <h2>自己紹介</h2>
+    <p>
+      こんにちは！私は{identity.name}です。{identity.country}在住の{
+        identity.occupation
+      }です。
+    </p>
+
+    <h2>趣味</h2>
+    <ul>
+      {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+    </ul>
+
+    <h2>スキル</h2>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+
+    <h2>このブログについて</h2>
+
+    <p>
+      このブログは、私がプログラミングを学ぶ過程で学んだことや、気になったことを書いていく場所です。
+    </p>
+
+    <p>
+      プログラミングを学ぶ上で、他の人に教えることも大切だと思っています。そのため、このブログでは、プログラミングを学ぶ人のための情報を提供していきます。
+    </p>
+  </main>
+</BaseLayout>

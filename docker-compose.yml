@@ -1,0 +1,18 @@
+services:
+  blog:
+    container_name: astro-blog
+    build:
+      context: .
+      dockerfile: .docker/node/Dockerfile
+    tty: true
+    volumes:
+      - type: bind
+        source: ./src/blog
+        target: /app
+    ports:
+      - target: 4321
+        published: ${WEB_PUBLISHED_PORT:-4321}
+        protocol: tcp
+        mode: host
+    working_dir: /app
+    command: npm run dev -- --host 0.0.0.0
