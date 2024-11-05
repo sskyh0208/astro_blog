@@ -1,40 +1,53 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import PostHeader from "../components/PostHeader.astro";
+import PostFooter from "../components/PostFooter.astro";
+
 const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-
-  <p><em>{frontmatter.description}</em></p>
-
-  <p>著者: {frontmatter.author}</p>
-
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-
-  <div class="tags">
-    {frontmatter.tags.map((tag) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-    ))}
+  <div class="flex flex-col space-y-8">
+    <PostHeader
+      imageUrl={frontmatter.imageUrl}
+      imageAlt={frontmatter.imageAlt}
+      title={frontmatter.title}
+      authorIconUrl={frontmatter.authorIconUrl}
+      authorIconAlt={frontmatter.authorIconAlt}
+      author={frontmatter.author}
+      pubDate={frontmatter.pubDate}
+      tag={frontmatter.tags[0]}
+    />
+    <div class="markdown-body">
+      <slot />
+    </div>
+    <PostFooter currentTitle={frontmatter.title} />
   </div>
-  <slot />
 </BaseLayout>
-<style>
-  a {
-    color: #00539F;
-  }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
+<style is:global>
+  .markdown-body ul {
+    @apply list-disc list-inside pl-4 mb-4;
   }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
+  .markdown-body h1,
+  h2,
+  h3 {
+    @apply font-bold mb-4;
+  }
+  .markdown-body h1,
+  h2 {
+    @apply border-b-2 border-solid border-gray-200;
+  }
+  .markdown-body h1 {
+    @apply text-3xl pb-2;
+  }
+  .markdown-body h2 {
+    @apply text-2xl;
+  }
+  .markdown-body h3 {
+    @apply text-lg;
+  }
+  .markdown-body p {
+    @apply mb-4;
   }
 </style>

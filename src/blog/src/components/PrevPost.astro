@@ -1,0 +1,11 @@
+---
+const { title, url } = Astro.props;
+const leftArrow = String.fromCharCode(8592);
+---
+<a href={url} class="flex items-center">
+  <div class="text-gray-500 mr-4">{leftArrow}</div>
+  <div class="text-left">
+    <p class="text-xs text-gray-500 mb-2">前の記事</p>
+    <p class="font-bold">{title}</p>
+  </div>
+</a>

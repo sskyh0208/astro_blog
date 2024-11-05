@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: '最初のブログ記事'
-pubDate: 2024-11-04
+pubDate: 2024-11-03
 description: '初めてのAstroによるブログ作成'
 author: 'Astro学習者'
 image:
-    url: 'https://docs.astro.build/assets/full-logo-light.png'
-    alt: 'Astroのロゴ。'
-tags: ["astro", "ブログ", "公開学習"]
+    url: "https://docs.astro.build/default-og-image.png"
+    alt: "惑星と星のイラストの中にastroという単語があります。"
+tags: ["python"]
 ---
 blogを爆速で作るのにAstroが良さげだったので、_ブログ_を作ってみることにしました。
 

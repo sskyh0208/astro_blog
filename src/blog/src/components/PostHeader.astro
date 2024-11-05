@@ -1,0 +1,49 @@
+---
+import { getImageUrlWithTag } from "../../lib/utils"
+import { Icon } from 'astro-icon/components'
+
+const {
+  title,
+  authorIconUrl,
+  authorIconAlt,
+  author,
+  pubDate,
+  tag,
+} = Astro.props
+const imageUrl = getImageUrlWithTag(tag)
+---
+
+<div class="flex flex-col space-y-8 items-center">
+  
+  <img
+    class="w-32 h-32 object-cover rounded-lg"
+    src={imageUrl}
+    alt={tag}
+  />
+
+  <h1 class="font-bold text-4xl">{title}</h1>
+
+  <div class="grid grid-cols-2 gap-x-20">
+    <div class="flex py-2">
+      {
+        authorIconUrl && authorIconAlt ? (
+          <img
+            class="w-10 h-10 rounded-full mr-4"
+            src={authorIconUrl}
+            alt={authorIconAlt}
+          />
+        ) : (
+          <div class="w-10 h-10 rounded-full mr-4 bg-gray-300" />
+        )
+      }
+      <div class="grid grid-cols-1 grid-rows-2 text-gray-700 text-xs">
+        <p>{author}</p>
+        <p>{pubDate.toString().slice(0, 10)}</p>
+      </div>
+    </div>
+    <div class="flex justify-center items-center py-2 text-neutral-500 text-xs">
+      <Icon name="mdi:tag" class="mr-2" />
+      <p>{tag}</p>
+    </div>
+  </div>
+</div>

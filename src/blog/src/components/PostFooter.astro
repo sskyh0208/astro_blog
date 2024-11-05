@@ -1,0 +1,41 @@
+---
+import NextPost from "./NextPost.astro";
+import PrevPost from "./PrevPost.astro";
+
+const { currentTitle } = Astro.props;
+
+// すべての記事を取得して日付でソート
+const allPosts = await Astro.glob("../pages/posts/*.md");
+const sortedPosts = allPosts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).getTime() -
+    new Date(a.frontmatter.pubDate).getTime(),
+);
+
+// 現在の記事のインデックスを見つける
+const currentIndex = sortedPosts.findIndex(
+  (post) => post.frontmatter.title === currentTitle,
+);
+
+// 前の記事を取得
+const prevPost =
+  currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+// 次の記事を取得
+const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+---
+<div class="grid grid-cols-2 border-y p-4">
+  <div class="col-span-1">
+    {
+      prevPost && (
+        <PrevPost title={prevPost.frontmatter.title} url={prevPost.url} />
+      )
+    }
+  </div>
+  <div class="col-span-1">
+    {
+      nextPost && (
+        <NextPost title={nextPost.frontmatter.title} url={nextPost.url} />
+      )
+    }
+  </div>
+</div>

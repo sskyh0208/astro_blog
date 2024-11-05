@@ -1,0 +1,15 @@
+---
+const { authorIcon, author } = Astro.props;
+---
+<div class="flex py-2 items-center">
+  {authorIcon ? (
+    <img
+      class="w-10 h-10 rounded-full mr-4"
+      src={authorIcon.url}
+      alt={authorIcon.alt}
+    />
+  ) : (
+    <div class="w-10 h-10 rounded-full mr-4 bg-gray-300"></div>
+  )}
+  <p>{author}</p>
+</div>
