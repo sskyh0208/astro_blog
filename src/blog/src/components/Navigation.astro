@@ -1,9 +1,10 @@
 ---
 import AnimationLink from "./AnimationLink.astro";
+import { menuItems } from "../../lib/utils";
 ---
 
-<nav class="grid grid-cols-3 gap-8 text-center">
-  <AnimationLink text="home" href="/" />
-  <AnimationLink text="about" href="/about" />
-  <AnimationLink text="tags" href="/tags" />
+<nav class="grid grid-cols-4 gap-8 text-center">
+  {menuItems.map(item => (
+    <AnimationLink text={item.name} href={item.href}/>
+  ))}
 </nav>

@@ -7,7 +7,7 @@ author: 'Astro学習者'
 image:
     url: "https://docs.astro.build/default-og-image.png"
     alt: "惑星と星のイラストの中にastroという単語があります。"
-tags: ["python"]
+tags: ["aws"]
 ---
 blogを爆速で作るのにAstroが良さげだったので、_ブログ_を作ってみることにしました。
 
