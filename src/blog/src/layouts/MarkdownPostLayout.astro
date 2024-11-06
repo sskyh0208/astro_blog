@@ -21,7 +21,7 @@ const { frontmatter } = Astro.props;
     <div class="markdown-body">
       <slot />
     </div>
-    <PostFooter currentTitle={frontmatter.title} />
+    <PostFooter currentTitle={frontmatter.title} tags={frontmatter.tags} />
   </div>
 </BaseLayout>
 

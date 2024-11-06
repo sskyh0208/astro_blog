@@ -1,8 +1,13 @@
 ---
-import Social from "./Social.astro"
+import AnimationLink from "./AnimationLink.astro";
 ---
 
-<footer>
-    <!-- <Social platform="twitter" username="sskyh0208" />
-    <Social platform="github" username="sskyh0208" /> -->
+<footer class="flex flex-col justify-center items-center py-8 space-y-4">
+  <div class="grid grid-cols-2 gap-2 md:flex md:space-x-4 text-center text-xs md:text-sm">
+    <AnimationLink text="about" href="/about" />
+    <AnimationLink text="terms" href="/terms" />
+    <AnimationLink text="privacy policy" href="/privacy" />
+    <AnimationLink text="contact" href="/contact" />
+  </div>
+  <p class="text-neutral-500 text-xs">© 2024 ささきよ all rights reserved. Icons by <a href="https://icons8.com" target="_blank" rel="noopener">Icons8</a></p>
 </footer>

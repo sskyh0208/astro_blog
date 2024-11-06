@@ -1,0 +1,10 @@
+---
+import AnimationLink from "./AnimationLink.astro";
+import Navigation from "./Navigation.astro";
+
+const { title } = Astro.props;
+---
+<header class="hidden max-w-5xl mx-auto md:flex justify-between items-center p-4">
+  <AnimationLink text={title} href="/" />
+  <Navigation />
+</header>

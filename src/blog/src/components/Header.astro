@@ -1,9 +1,8 @@
 ---
-import AuthorIcon from "./AuthorIcon.astro";
-import Navigation from "./Navigation.astro";
+import DesktopHeader from "./DesktopHeader.astro";
+import MobileHeader from "./MobileHeader.astro";
 
+const title = "ちらしの裏"
 ---
-<header class="hidden max-w-5xl mx-auto md:flex justify-between items-center p-4">
-  <AuthorIcon author="Astro学習者"/>
-  <Navigation />
-</header>
+<DesktopHeader title={title} />
+<MobileHeader title={title} />

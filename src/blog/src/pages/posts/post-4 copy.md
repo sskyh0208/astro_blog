@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: BlogのUIを大幅にカスタマイズ、そしてブログっぽくなるまで色々
+title: BlogのUIを大幅にカスタマイズ
 pubDate: 2024-11-05
 description: 'よいよ、見た目をいじってブログっぽくしてみる。'
 author: 'Astro学習者'
