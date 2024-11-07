@@ -1,0 +1,78 @@
+---
+const { identity, description, socailLinks } = Astro.props;
+const { name, place, occupation } = identity;
+---
+
+<div class="flex flex-col items-center space-y-8">
+  <div class="relative w-48 h-48 rounded-full overflow-hidden">
+    <img
+      src="/author.jpg"
+      alt="プロフィール画像"
+    />
+  </div>
+
+  <div class="text-center">
+    <h1 class="text-3xl font-bold mb-2">{name}</h1>
+    <p class="text-lg text-muted-foreground">
+      {occupation}
+    </p>
+    <p class="text-lg text-muted-foreground">
+      {place}在住
+    </p>
+  </div>
+
+  <p class="max-w-2xl text-center">{description}</p>
+
+  <div class="flex space-x-4">
+    {socailLinks.map((link) => (
+      <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-primary-500">
+        <img class="w-8 h-8" src={`/${link.name}.png`} alt={link.name} />
+      </a>
+    ))}
+  </div>
+</div>
+
+  <div class="flex space-x-4">
+    <!-- <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+      <Button variant="outline" size="icon">
+        <Github class="h-5 w-5" />
+        <span class="sr-only">GitHub</span>
+      </Button>
+    </Link>
+    <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+      <Button variant="outline" size="icon">
+        <Linkedin class="h-5 w-5" />
+        <span class="sr-only">LinkedIn</span>
+      </Button>
+    </Link>
+    <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+      <Button variant="outline" size="icon">
+        <Twitter class="h-5 w-5" />
+        <span class="sr-only">Twitter</span>
+      </Button>
+    </Link> -->
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+    <!-- <Link href="/projects" class="group">
+      <div
+        class="bg-card text-card-foreground rounded-lg p-6 transition-all duration-300 group-hover:shadow-lg"
+      >
+        <h2 class="text-xl font-semibold mb-2">プロジェクト</h2>
+        <p class="text-muted-foreground">
+          私が携わった主要なプロジェクトをご覧ください。
+        </p>
+      </div>
+    </Link>
+    <Link href="/blog" class="group">
+      <div
+        class="bg-card text-card-foreground rounded-lg p-6 transition-all duration-300 group-hover:shadow-lg"
+      >
+        <h2 class="text-xl font-semibold mb-2">ブログ投稿</h2>
+        <p class="text-muted-foreground">
+          技術的な洞察や経験を共有しています。
+        </p>
+      </div>
+    </Link> -->
+  </div>
+</div>

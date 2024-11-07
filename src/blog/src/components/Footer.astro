@@ -1,13 +1,13 @@
 ---
 import AnimationLink from "./AnimationLink.astro";
+import { footerMenuItems } from "../lib/config";
 ---
 
 <footer class="flex flex-col justify-center items-center py-8 space-y-4">
   <div class="grid grid-cols-2 gap-2 md:flex md:space-x-4 text-center text-xs md:text-sm">
-    <AnimationLink text="about" href="/about" />
-    <AnimationLink text="terms" href="/terms" />
-    <AnimationLink text="privacy policy" href="/privacy" />
-    <AnimationLink text="contact" href="/contact" />
+   {footerMenuItems.map(item => (
+     <AnimationLink text={item.name} href={item.href}/>
+  ))}
   </div>
   <p class="text-neutral-500 text-xs">© 2024 ささきよ all rights reserved. Icons by <a href="https://icons8.com" target="_blank" rel="noopener">Icons8</a></p>
 </footer>

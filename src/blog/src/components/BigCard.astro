@@ -1,8 +1,7 @@
 ---
-import { getImageUrlWithTag } from "../../lib/utils";
 import { Icon } from "astro-icon/components";
 
-const { authorIcon, url, date, title, description, tag } = Astro.props;
+const { url, date, title, tag } = Astro.props;
 
 function getRelativeTimeString(date: string | Date) {
   const now = new Date();
@@ -32,12 +31,11 @@ function getRelativeTimeString(date: string | Date) {
 }
 
 const relativeTime = getRelativeTimeString(date);
-const imageUrl = getImageUrlWithTag(tag);
 ---
 
 <a class="w-full md:w-[calc(100%-20px)] max-h-[230px] flex flex-col md:flex-row rounded shadow-md cursor-pointer p-4 transition-all duration-500 ease-out hover:bg-neutral-50" href={url}>
   <div class="w-full md:w-1/2 flex items-center justify-center mb-4">
-    <img class="w-16 md:w-28 h-16 md:h-28" src={imageUrl} alt={tag} />
+    <img class="w-16 md:w-28 h-16 md:h-28" src={`/${tag}.png`} alt={tag} />
   </div>
   <div class="w-full md:w-1/2 flex flex-col items-center justify-around p-2">
     <div class="font-bold text-md md:text-lg mb-2">{title}</div>

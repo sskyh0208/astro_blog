@@ -1,51 +1,40 @@
 ---
+import PageTitle from "../components/PageTitle.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const pageTitle = "私について";
-
-const identity = {
-  name: "sskyh",
-  country: "Japan",
-  occupation: "インフラエンジニア",
-  hobbies: ["プログラミング", "読書", "音楽"],
-};
-
-const skills = [
-  "Terraform",
-  "CloudFormation",
-  "AWS",
-  "Python",
-  "Guthub Actions",
-  "Docker",
-  "Shell Script",
-];
+import { author } from "../lib/config";
+const pageTitle = "サイトについて";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>自己紹介</h2>
-  <p>
-    こんにちは！私は{identity.name}です。{identity.country}在住の{
-      identity.occupation
-    }です。
-  </p>
-
-  <h2>趣味</h2>
-  <ul>
-    {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
-  </ul>
-
-  <h2>スキル</h2>
-  <ul>
-    {skills.map((skill) => <li>{skill}</li>)}
-  </ul>
-
-  <h2>このブログについて</h2>
-
-  <p>
-    このブログは、私がプログラミングを学ぶ過程で学んだことや、気になったことを書いていく場所です。
-  </p>
-
-  <p>
-    プログラミングを学ぶ上で、他の人に教えることも大切だと思っています。そのため、このブログでは、プログラミングを学ぶ人のための情報を提供していきます。
-  </p>
+  <PageTitle title={pageTitle} />
+  <div class="flex flex-col items-center space-y-8">
+    <div class="flex items-center gap-8">
+      <div class="relative w-28 h-28 rounded-full overflow-hidden">
+        <img
+          src={author.icon}
+          alt="プロフィール画像"
+        />
+      </div>
+    
+      <div class="text-center">
+        <h1 class="text-3xl font-bold mb-2">{author.name}</h1>
+        <p class="text-sm text-muted-foreground">
+          {author.occupation}
+        </p>
+        <p class="text-sm text-muted-foreground">
+          {author.place}在住
+        </p>
+      </div>
+    </div>
+  
+    <p class="max-w-2xl text-center">{author.description}</p>
+  
+    <div class="flex space-x-4">
+      {author.socailLinks.map((link) => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-primary-500">
+          <img class="w-8 h-8" src={`/${link.name}.png`} alt={link.name} />
+        </a>
+      ))}
+    </div>
+  </div>
 </BaseLayout>

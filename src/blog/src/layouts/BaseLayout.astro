@@ -1,9 +1,9 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { blogTitle } from "../lib/config";
 const { pageTitle } = Astro.props;
-const baseTitle = "ちらしの裏";
-const title = pageTitle ? `${pageTitle} | ${baseTitle}` : baseTitle;
+const title = pageTitle ? `${pageTitle} | ${blogTitle}` : blogTitle;
 ---
 
 <html lang="ja">
@@ -15,7 +15,7 @@ const title = pageTitle ? `${pageTitle} | ${baseTitle}` : baseTitle;
     <title>{title}</title>
   </head>
   <body>
-    <Header />
+    <Header title={blogTitle} />
     <main class="max-w-4xl mx-auto px-4">
       <slot />
     </main>

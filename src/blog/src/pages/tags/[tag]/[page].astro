@@ -1,10 +1,10 @@
 ---
 // src/pages/tags/[tag]/[page].astro
 import Card from "../../../components/Card.astro";
+import PageNavigation from "../../../components/PageNavigation.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { Icon } from 'astro-icon/components'
-
-export const postsPerPage = 8;
+import { postsPerPage } from "../../../lib/config";
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await Astro.glob("../../../pages/posts/*.md");
@@ -66,40 +66,6 @@ const pageNumbers = generateFivePageNumbers(currentPage, lastPage);
     ))}
   </div>
   {lastPage > 1 && (
-    <nav class="flex justify-center items-center py-8 space-x-4 text-sm">
-      <div class="grid grid-cols-7 text-center items-center">
-        {page.url.prev ? (
-          <a 
-            href={page.url.prev} 
-            class="transition-all duration-500 hover:bg-neutral-50 p-2 rounded"
-          >
-            前
-          </a>
-        ) : (<p class="text-neutral-200">前</p>)}
-        
-        {pageNumbers.map((num) => (
-          <a 
-            href={`/posts/${num}`} 
-            class={`w-[31px] transition-all duration-500 p-2 rounded ${
-              currentPage === num 
-                ? 'bg-neutral-100' 
-                : 'hover:bg-neutral-50'
-            }`}
-            aria-current={currentPage === num ? 'page' : undefined}
-          >
-            {num}
-          </a>
-        ))}
-        
-        {page.url.next ? (
-          <a 
-            href={page.url.next} 
-            class="transition-all duration-500 hover:bg-neutral-50 p-2 rounded"
-          >
-            次
-          </a>
-        ) : (<p class="text-neutral-200">次</p>)}
-      </div>
-    </nav>
+    <PageNavigation page={page} currentPage={currentPage} pageNumbers={pageNumbers} />
   )}
 </BaseLayout>

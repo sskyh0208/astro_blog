@@ -5,8 +5,8 @@ import Greeting from "../components/Greeting";
 import Card from "../components/Card.astro";
 import BigCard from "../components/BigCard.astro";
 import PageTitle from "../components/PageTitle.astro";
+import { blogTitle } from "../lib/config";
 
-const pageTitle = "ちらしの裏";
 const description = "日々の学びや思ったことを書いています。";
 const allPosts = await Astro.glob("../pages/posts/*.md");
 allPosts.sort((a, b) => {
@@ -16,8 +16,8 @@ const recentPost = allPosts[0];
 const allPostsExceptRecent = allPosts.slice(1, 7);
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <PageTitle title={pageTitle} description={description} />
+<BaseLayout pageTitle={blogTitle}>
+  <PageTitle title={blogTitle} description={description} />
   <div class="grid grid-cols-1 place-items-center gap-8 px-4 md:px-8 mb-8">
     <BigCard
       authorIcon={recentPost.frontmatter.authorIcon}
