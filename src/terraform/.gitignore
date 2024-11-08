@@ -1,0 +1,4 @@
+.aws/credentials
+.terraform
+terraform.tfvars
+backend.hcl
