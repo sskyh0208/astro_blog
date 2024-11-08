@@ -1,0 +1,38 @@
+---
+import PageTitle from "../components/PageTitle.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "利用規約";
+const updateDate = "2024-11-8";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <PageTitle title={pageTitle} />
+    
+    <div class="space-y-8 leading-relaxed">
+      <section class="space-y-8">
+        <h2 class="text-xl font-semibold mb-4 text-center">免責事項</h2>
+        <p>
+          当サイトのすべての情報につきましては、できる限り正確な情報提供に努めておりますが、必ずしも掲載内容の正確性、完全性、最新性について保証するものではありません。 <br/>
+          そのため、当サイトの情報を利用することによって生じたいかなる損害についても、当サイトは責任を負いかねますことをご了承ください。
+        </p>
+        <p>
+          本免責事項、および当サイトに掲載している情報は、予告なしに変更・削除されることがあります。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4 text-center">著作権</h2>
+        <p>
+          当サイトのコンテンツは、出典元（当サイトURL）を明記していただければ引用として自由にご利用いただけます。<br />
+          ただし、記事の全文転載や、RSSフィードを用いた自動的なコンテンツ転載はご遠慮ください。
+        </p>
+      </section>
+
+      <div class="mt-12 text-sm text-gray-600 text-center">
+        <p>最終更新日：{updateDate}</p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -9,6 +9,8 @@ import remarkToc from 'remark-toc';
 
 import icon from 'astro-icon';
 
+import partytown from '@astrojs/partytown';
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
@@ -20,7 +22,11 @@ export default defineConfig({
         shadowColor: '#124',
       },
     },
-  }), icon()],
+  }), icon(), partytown({
+    config: {
+      forward: ["dataLayer.push"],
+    }
+  })],
   markdown: {
     // remarkPlugins: [
     //   remarkToc,

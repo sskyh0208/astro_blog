@@ -1,14 +1,19 @@
 ---
 import PageTitle from "../components/PageTitle.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { author } from "../lib/config";
+import { author, blogTitle, histories } from "../lib/config";
 const pageTitle = "サイトについて";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <PageTitle title={pageTitle} />
   <div class="flex flex-col items-center space-y-8">
+    <p class="max-w-2xl">
+      このサイトは、著者が日々の学びや思ったことを記録するために作成したブログです。<br />
+      書いたことが誰かの役に立つことがあれば幸いです。
+    </p>
     <div class="flex items-center gap-8">
+
       <div class="relative w-28 h-28 rounded-full overflow-hidden">
         <img
           src={author.icon}
@@ -26,8 +31,23 @@ const pageTitle = "サイトについて";
         </p>
       </div>
     </div>
-  
+
     <p class="max-w-2xl text-center">{author.description}</p>
+
+    <div>
+      <h2 class="text-xl font-bold mb-2">経歴</h2>
+      <ol class="relative border-s border-neutral-400"> 
+        {histories.map((history, index) => (
+          <li class={`${index === histories.length - 1 ? "" : "mb-6"} ms-4`}>
+            <div class={`absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white ${index === 0 ? "border-green-500 bg-green-500" : "border-neutral-400 bg-neutral-400"}`}></div>
+            <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{history.start} ~ {history.end}</time>
+            <p class={`border rounded-lg p-2 text-sm font-normal ${index === 0 ? "" : "text-neutral-400 bg-neutral-100"}`}>
+              {history.description}
+            </p>
+          </li>
+        ))}             
+      </ol>
+    </div>
   
     <div class="flex space-x-4">
       {author.socailLinks.map((link) => (

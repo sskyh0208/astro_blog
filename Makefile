@@ -33,12 +33,12 @@ terraform-logs:
 # terraformコマンド
 ############################################
 %-init:
-	docker compose exec terraform terraform -chdir=./terraform/environments/$* init
+	docker compose exec terraform terraform -chdir=./environments/$* init -backend-config="backend.hcl"
 %-plan:
-	docker compose exec terraform terraform -chdir=./terraform/environments/$* plan
+	docker compose exec terraform terraform -chdir=./environments/$* plan
 %-apply:
-	docker compose exec terraform terraform -chdir=./terraform/environments/$* apply
+	docker compose exec terraform terraform -chdir=./environments/$* apply
 %-refresh:
-	docker compose exec terraform terraform -chdir=./terraform/environments/$* refresh
+	docker compose exec terraform terraform -chdir=./environments/$* refresh
 %-destroy:
-	docker compose exec terraform terraform -chdir=./terraform/environments/$* destroy
+	docker compose exec terraform terraform -chdir=./environments/$* destroy

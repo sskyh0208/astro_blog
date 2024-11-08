@@ -1,0 +1,54 @@
+---
+import PageTitle from "../components/PageTitle.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "プライバシーポリシー";
+const updateDate = "2024-11-8";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <PageTitle title={pageTitle} />
+    <div class="space-y-8 leading-relaxed">
+      <section>
+        <h2 class="text-xl font-semibold mb-4 text-center">個人情報の収集と利用</h2>
+        <p class="mb-4">当サイトでは、当サイトのアクセス状況や分析改善のため、「Google アナリティクスによる訪問者データ」「コメント投稿時の名前やメールアドレス（任意）」「お問い合わせフォームに入力された情報」を収集しています。</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4 text-center">Google アナリティクスの利用</h2>
+        <p class="mb-4">当サイトでは、Googleによるアクセス解析ツール「Google アナリティクス」を使用しています。このGoogleアナリティクスはデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。</p>
+        <p class="mb-4">この機能はCookieを無効にすることで収集を拒否することができます。お使いのブラウザの設定をご確認ください。</p>
+        <p class="mb-4">Google アナリティクスの利用規約及びプライバシーポリシーに関する説明については、「<a href="https://marketingplatform.google.com/about/analytics/terms/jp/" class="text-blue-600 underline">Google アナリティクス利用規約</a>」または「<a href="https://policies.google.com/privacy?hl=ja" class="text-blue-600 underline">Google プライバシーポリシー</a>」をご確認ください。</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4 text-center">個人情報の管理</h2>
+        <p>収集した個人情報は、適切な安全管理措置を講じて管理します。</p>
+        <p>個人情報は、法令に基づく場合を除き、本人の同意なく第三者に提供することはありません。</p>
+        <p>個人情報の開示、訂正、削除のご要望については、お問い合わせフォームよりご連絡ください。</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4 text-center">Cookie（クッキー）の使用</h2>
+        <p class="mb-4">当サイトでは、以下の目的のためにCookieを使用します：</p>
+        <p>アクセス解析（Google アナリティクス）</p>
+        <p>サイトの利便性向上</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4 text-center">外部リンク</h2>
+        <p>当サイトには外部サイトへのリンクが含まれます。リンク先サイトのプライバシーポリシーやデータ収集については、当サイトは責任を負いかねます。</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4 text-center">プライバシーポリシーの変更</h2>
+        <p>当サイトは、必要に応じて本プライバシーポリシーを変更することがあります。変更後のプライバシーポリシーは、当サイトでの掲載時点から効力を生じるものとします。</p>
+      </section>
+    </div>
+
+    <div class="mt-12 text-sm text-gray-600 text-center">
+      <p>最終更新日：{updateDate}</p>
+    </div>
+  </article>
+</BaseLayout>

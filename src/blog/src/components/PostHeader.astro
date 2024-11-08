@@ -1,15 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { getStrDate } from '../lib/utils'
 
 const {
   title,
   pubDate,
   tag,
 } = Astro.props
-const getStrDate = (date) => {
-  const d = new Date(date)
-  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 ${d.getHours()}:${d.getMinutes()}`
-}
+
 const strDate = getStrDate(pubDate)
 ---
 
@@ -22,6 +20,9 @@ const strDate = getStrDate(pubDate)
       <Icon name="mdi:tag" class="mr-2" />
       <p>{tag}</p>
     </a>
-    <p>{strDate}</p>
+    <div class="flex justify-center items-center">
+      <Icon name="mdi:clock" class="mr-2" />
+      <p>{strDate}</p>
+    </div>
   </div>
 </div>

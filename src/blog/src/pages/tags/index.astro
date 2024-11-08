@@ -3,14 +3,23 @@ import PageTitle from "../../components/PageTitle.astro";
 import TagCard from "../../components/TagCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const allPosts = await Astro.glob('../posts/*.md');
-const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+const tagMap = new Map<string, number>();
+allPosts
+  .map((post) => post.frontmatter.tags)
+  .flat()
+  .forEach(tag => {
+    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+  });
+
+const tags = Array.from(tagMap, ([name, count]) => ({ name, count }));
+const sortedTags = tags.sort((a, b) => b.count - a.count);
 const pageTitle = "タグ一覧";
 ---
 <BaseLayout pageTitle={pageTitle}>
   <PageTitle title={pageTitle} />
-  <div class="grid grid-cols-3 gap-2 md:flex content-center">
-    {tags.map((tag) => (
-      <TagCard tag={tag} />
+  <div class="flex flex-wrap justify-center gap-2 md:flex content-center">
+    {sortedTags.map((tag) => (
+      <TagCard tag={tag.name} count={tag.count} />
     ))}
   </div>
 </BaseLayout>

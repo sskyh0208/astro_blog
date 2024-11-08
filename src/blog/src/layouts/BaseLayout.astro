@@ -14,9 +14,21 @@ const title = pageTitle ? `${pageTitle} | ${blogTitle}` : blogTitle;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    type="text/partytown"
+    async src="https://www.googletagmanager.com/gtag/js?id=G-YCQEWD4N93"
+  ></script>
+  <script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YCQEWD4N93');
+  </script>
   <body>
     <Header title={blogTitle} />
-    <main class="max-w-4xl mx-auto px-4">
+    <main class="max-w-3xl mx-auto px-4 pb-8">
       <slot />
     </main>
     <Footer />

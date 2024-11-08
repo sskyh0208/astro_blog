@@ -16,3 +16,15 @@ services:
         mode: host
     working_dir: /app
     command: npm run dev -- --host 0.0.0.0
+
+  terraform:
+    container_name: astro-terraform
+    build:  
+      context: .docker/terraform
+      dockerfile: Dockerfile
+    volumes: 
+      - ./src/terraform/environments:/src/terraform/environments
+      - ./src/terraform/lambda:/src/terraform/lambda
+      - ./src/terraform/.aws:/root/.aws
+    working_dir: /src/terraform
+    tty: true

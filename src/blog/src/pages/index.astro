@@ -6,6 +6,7 @@ import Card from "../components/Card.astro";
 import BigCard from "../components/BigCard.astro";
 import PageTitle from "../components/PageTitle.astro";
 import { blogTitle } from "../lib/config";
+import TagCard from "../components/TagCard.astro";
 
 const description = "日々の学びや思ったことを書いています。";
 const allPosts = await Astro.glob("../pages/posts/*.md");
@@ -44,7 +45,9 @@ const allPostsExceptRecent = allPosts.slice(1, 7);
       />
     ))}
   </div>
-  <div class="flex justify-center items-center py-8">
-    <a href="/posts/1" class="text-md rounded-lg border py-2 px-4 transition-all duration-500 ease-out hover:bg-neutral-50">記事をもっとみる</a>
-  </div>
+  {allPosts.length > 7 && (
+    <div class="flex justify-center items-center py-8">
+      <a href="/posts/1" class="text-md rounded-lg border py-2 px-4 transition-all duration-500 ease-out hover:bg-neutral-50">記事をもっとみる</a>
+    </div>
+  )}
 </BaseLayout>
