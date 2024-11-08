@@ -42,12 +42,12 @@ const { frontmatter } = Astro.props;
     @apply text-3xl pb-2;
   }
   .markdown-body h2 {
-    @apply text-2xl;
+    @apply text-base md:text-2xl;
   }
   .markdown-body h3 {
-    @apply text-lg;
+    @apply text-sm md:text-lg;
   }
   .markdown-body p {
-    @apply mb-4;
+    @apply mb-4 text-xs md:text-base;
   }
 </style>

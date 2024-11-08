@@ -4,7 +4,7 @@ import { footerMenuItems } from "../lib/config";
 ---
 
 <footer class="flex flex-col justify-center items-center py-8 space-y-4">
-  <div class="grid grid-cols-2 gap-2 md:flex md:space-x-4 text-center text-xs md:text-base">
+  <div class="flex gap-4 text-center text-xs md:text-base">
    {footerMenuItems.map(item => (
      <AnimationLink text={item.name} href={item.href}/>
   ))}

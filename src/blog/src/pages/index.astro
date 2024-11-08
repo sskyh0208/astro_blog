@@ -31,7 +31,7 @@ const allPostsExceptRecent = allPosts.slice(1, 7);
       tag={recentPost.frontmatter.tags[0]}
     />
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-4 px-4 md:px-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 place-items-center gap-4 px-4 md:px-8">
     {allPostsExceptRecent.map((post, index) => (
       <Card
         authorIcon={post.frontmatter.authorIcon}
