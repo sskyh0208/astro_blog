@@ -5,20 +5,20 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const allPosts = await Astro.glob('../posts/*.md');
 const tagMap = new Map<string, number>();
 allPosts
-  .map((post) => post.frontmatter.tags)
+  .map((post: any) => post.frontmatter.tags)
   .flat()
   .forEach(tag => {
     tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
   });
 
 const tags = Array.from(tagMap, ([name, count]) => ({ name, count }));
-const sortedTags = tags.sort((a, b) => b.count - a.count);
+const sortedTags = tags.sort((a: any, b: any) => b.count - a.count);
 const pageTitle = "タグ一覧";
 ---
 <BaseLayout pageTitle={pageTitle}>
   <PageTitle title={pageTitle} />
   <div class="flex flex-wrap justify-center gap-2 md:flex content-center">
-    {sortedTags.map((tag) => (
+    {sortedTags.map((tag: { name: string; count: number }) => (
       <TagCard tag={tag.name} count={tag.count} />
     ))}
   </div>

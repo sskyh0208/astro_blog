@@ -14,7 +14,7 @@ const pageNationGridCols = pageNumbers.length + 2;
       </a>
     ) : (<p class="text-neutral-200">前</p>)}
     
-    {pageNumbers.map((num) => (
+    {pageNumbers.map((num: number) => (
       <a 
         href={`/posts/${num}`} 
         class={`w-[31px] transition-all duration-500 p-2 rounded ${

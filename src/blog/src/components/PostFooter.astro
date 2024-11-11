@@ -1,9 +1,8 @@
 ---
 import NextPost from "./NextPost.astro";
 import PrevPost from "./PrevPost.astro";
-import { Icon } from 'astro-icon/components'
 
-const { currentTitle, tags } = Astro.props;
+const { currentTitle } = Astro.props;
 
 // すべての記事を取得して日付でソート
 const allPosts = await Astro.glob("../pages/posts/*.md");

@@ -1,12 +1,10 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from "../components/Greeting";
 import Card from "../components/Card.astro";
 import BigCard from "../components/BigCard.astro";
 import PageTitle from "../components/PageTitle.astro";
 import { blogTitle } from "../lib/config";
-import TagCard from "../components/TagCard.astro";
 
 const description = "日々の学びや思ったことを書いています。";
 const allPosts = await Astro.glob("../pages/posts/*.md");
@@ -32,7 +30,7 @@ const allPostsExceptRecent = allPosts.slice(1, 7);
     />
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 place-items-center gap-4 px-4 md:px-8">
-    {allPostsExceptRecent.map((post, index) => (
+    {allPostsExceptRecent.map((post: any) => (
       <Card
         authorIcon={post.frontmatter.authorIcon}
         author={post.frontmatter.author}

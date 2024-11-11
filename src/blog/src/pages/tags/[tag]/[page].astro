@@ -8,13 +8,13 @@ import { postsPerPage } from "../../../lib/config";
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await Astro.glob("../../../pages/posts/*.md");
-  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())]
+  const uniqueTags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())]
   const allPostsSorted = allPosts.sort(
-    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+    (a: any, b: any) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
   );
 
-  return uniqueTags.flatMap((tag) => {
-    const filteredPosts = allPostsSorted.filter((post) => 
+  return uniqueTags.flatMap((tag: any) => {
+    const filteredPosts = allPostsSorted.filter((post: any) => 
       post.frontmatter.tags.includes(tag)
     );
     return paginate(filteredPosts, {
@@ -52,7 +52,7 @@ const pageNumbers = generateFivePageNumbers(currentPage, lastPage);
     <h1>{tag}</h1>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-4 px-4 md:px-8">
-    {page.data.map((post) => (
+    {page.data.map((post: any) => (
       <Card
         authorIcon={post.frontmatter.authorIcon}
         author={post.frontmatter.author}

@@ -11,7 +11,7 @@ const pageTitle = "記事一覧";
 export async function getStaticPaths({ paginate }) {
   const allPosts = await Astro.glob("../../pages/posts/*.md");
   const allPostsSorted = allPosts.sort(
-    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+    (a: any, b: any) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
   );
   return paginate(allPostsSorted, { pageSize: postsPerPage });
 };
@@ -41,7 +41,7 @@ const pageNumbers = generateFivePageNumbers(currentPage, lastPage);
 <BaseLayout pageTitle={pageTitle}>
   <PageTitle title={pageTitle}/>
   <div class="grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-4 px-4 md:px-8">
-    {page.data.map((post, index) => (
+    {page.data.map((post: any) => (
       <Card
         authorIcon={post.frontmatter.authorIcon}
         author={post.frontmatter.author}

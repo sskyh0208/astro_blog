@@ -4,9 +4,6 @@ import { defineConfig } from 'astro/config';
 import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
 import expressiveCode from "astro-expressive-code";
-import rehypeToc from 'rehype-toc';
-import remarkToc from 'remark-toc';
-
 import icon from 'astro-icon';
 
 import partytown from '@astrojs/partytown';
@@ -28,11 +25,5 @@ export default defineConfig({
     }
   })],
   markdown: {
-    // remarkPlugins: [
-    //   remarkToc,
-    // ],
-    // rehypePlugins: [
-    //   rehypeToc,
-    // ],
   },
 });

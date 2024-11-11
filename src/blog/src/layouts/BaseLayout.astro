@@ -16,11 +16,12 @@ const title = pageTitle != blogTitle ? `${pageTitle} | ${blogTitle}` : blogTitle
     <title>{title}</title>
   </head>
   <!-- Google tag (gtag.js) -->
-  <script
+  <script is:inline
     type="text/partytown"
     async src=`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`
   ></script>
-  <script type="text/partytown">
+  <script is:inline
+    type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
