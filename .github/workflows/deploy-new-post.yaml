@@ -18,6 +18,7 @@ env:
 
   BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
   CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID }}
+  GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
 
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
   SLACK_USERNAME: GitHub Actions
@@ -57,6 +58,7 @@ jobs:
       - name: Build
         working-directory: ${{ env.SOURCE_DIR }}
         run: |
+          echo PUBLIC_GOOGLE_ANALYTICS_ID=${{ env.GOOGLE_ANALYTICS_ID }} > .env.production
           npm install
           npm run build
 
