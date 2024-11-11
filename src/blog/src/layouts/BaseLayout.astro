@@ -3,7 +3,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { blogTitle } from "../lib/config";
 const { pageTitle } = Astro.props;
-const title = pageTitle ? `${pageTitle} | ${blogTitle}` : blogTitle;
+const googleAnalyticsId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID;
+const title = pageTitle != blogTitle ? `${pageTitle} | ${blogTitle}` : blogTitle;
 ---
 
 <html lang="ja">
@@ -17,14 +18,14 @@ const title = pageTitle ? `${pageTitle} | ${blogTitle}` : blogTitle;
   <!-- Google tag (gtag.js) -->
   <script
     type="text/partytown"
-    async src="https://www.googletagmanager.com/gtag/js?id=G-YCQEWD4N93"
+    async src=`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`
   ></script>
   <script type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-YCQEWD4N93');
+    gtag('config', googleAnalyticsId);
   </script>
   <body>
     <Header title={blogTitle} />
