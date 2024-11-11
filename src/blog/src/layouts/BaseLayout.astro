@@ -16,17 +16,23 @@ const title = pageTitle != blogTitle ? `${pageTitle} | ${blogTitle}` : blogTitle
     <title>{title}</title>
   </head>
   <!-- Google tag (gtag.js) -->
-  <script is:inline
+  <script
+    is:inline
     type="text/partytown"
     async src=`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`
   ></script>
-  <script is:inline
-    type="text/partytown">
+  <script
+    is:inline
+    type="text/partytown"
+    data-ga-id={googleAnalyticsId}
+    id="ga-init"
+  >
+    const gaId = document.getElementById('ga-init').getAttribute('data-ga-id');
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', `${googleAnalyticsId}`);
+    gtag('config', gaId);
   </script>
   <body>
     <Header title={blogTitle} />
