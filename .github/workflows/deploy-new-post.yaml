@@ -1,6 +1,11 @@
 name: 新たな記事をデプロイ
 
 on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: '新たな記事をデプロイします。 「production」と人力してください。'
+        required: true
   push:
     branches:
       - main
@@ -34,7 +39,7 @@ jobs:
     steps:
       # 入力値チェック
       - name: Target validate
-        if: ${{ github.event_name != 'push' }}
+        if: ${{ github.event_name != 'push' && github.event.inputs.env != 'production' }}
         run: exit 1
 
       # チェックアウト
